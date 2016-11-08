@@ -17,14 +17,14 @@ export class IamService {
       return Observable.of(true);
     if (!this.authObservable) {      
       this.authObservable = this.http.get(this.serverUrl + "authenticate/")
-        .map(this.handleAuthResponse).share();
+        .map(x=>this.handleAuthResponse(x)).share();
     }
     return this.authObservable;
   }
 
   private renewAuthentication() {
     this.http.get(this.serverUrl + "authenticate/renew/")
-      .map(this.handleAuthResponse)
+      .map(x=>this.handleAuthResponse(x))
       .subscribe();
   }
 

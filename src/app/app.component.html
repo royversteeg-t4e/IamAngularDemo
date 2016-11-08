@@ -1,6 +1,25 @@
-<h1>
-  {{title}}
-</h1>
-<div>
-  {{ response }}
-</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" rel="home" [routerLink]="['']" title="Iam Angular Demo">
+          <img style="max-width:100px;"
+              src="assets/images/logo.png">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="p-r-15 inline">
+            <a [routerLink]="['home']" [routerLinkActive]="['active']" title="Home">
+              <span class="fa fa-home fa-2x"></span>
+            </a>
+          </li>
+          <li class="p-r-15 inline">
+            <a [routerLink]="['lock']" [routerLinkActive]="['active']" title="Restricted">
+              <span class="fa fa-lock fa-2x"></span>
+            </a>
+          </li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<router-outlet></router-outlet>

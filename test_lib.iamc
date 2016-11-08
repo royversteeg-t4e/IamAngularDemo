@@ -1,0 +1,18 @@
+//
+// This library was created by Roy Versteeg
+// Version: 2.1.1497
+// Date: 7-11-2016 12:06:36
+//
+
+[remote(allow:"*")]
+function test_func(in input, out output)
+{
+	log(message: "Received: $input", severity: "log");
+	$output = "IAM WORKS!";
+}
+
+[remote(allow:"*")]
+function get_memberships(out memberships)
+{
+	iam_account_get_memberships_recursive(ref_name: $env.iam_user_ref_name, memberships: $memberships);
+}
